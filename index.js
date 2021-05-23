@@ -12,12 +12,14 @@ app.use("/", (req, res, next) => {
   let _method = req.body.method;
   let _data = req.body.data;
   let _headers = req.body.headers;
+  let _params = req.body.params;
   //let's make the axios call now.
   axios({
     url: _url,
     method: _method,
     headers: _headers,
     data: _data,
+    params: _params
   }).then((response) => {
     res.status(response.status);
     res.json(response.data);
